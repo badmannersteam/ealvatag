@@ -21,10 +21,7 @@ subprojects {
     artifacts.archives packageSources
     repositories {
         jcenter()
-        mavenLocal()
-
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-        maven { url "http://repo.maven.apache.org/maven2" }
+        google()
         maven { url 'https://jitpack.io' }
     }
 
