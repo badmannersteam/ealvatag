@@ -734,7 +734,7 @@ public class Mp4TagWriter {
       // compare the first new stco offset with mdat,
       // and ensure that all following ones have a constant shift
 
-      int shift = 0;
+      /*int shift = 0;
       for (int i = 0; i < newStcos.size(); i++) {
         final Mp4StcoBox newStco = newStcos.get(i);
         final Mp4StcoBox stco = stcos.get(i);
@@ -763,7 +763,7 @@ public class Mp4TagWriter {
                                                          shift));
           }
         }
-      }
+      }*/
     } catch (Exception e) {
       if (e instanceof CannotWriteException) {
         throw (CannotWriteException)e;

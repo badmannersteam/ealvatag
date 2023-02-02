@@ -65,13 +65,15 @@ public class Mp4StcoBox extends AbstractMp4Box {
     noOfOffSets = bufferedSource.readInt();
     dataSize -= 4;
 
-    //First Offset, useful for sanity checks
-    firstOffSet = bufferedSource.readInt();
-    dataSize -= 4;
+    if (dataSize >= 4) {
+      //First Offset, useful for sanity checks
+      firstOffSet = bufferedSource.readInt();
+      dataSize -= 4;
 
-    audioHeader.setAudioDataStartPosition(firstOffSet);
-    audioHeader.setAudioDataEndPosition(audioHeader.getFileSize());
-    audioHeader.setAudioDataLength(audioHeader.getFileSize() - firstOffSet);
+      audioHeader.setAudioDataStartPosition(firstOffSet);
+      audioHeader.setAudioDataEndPosition(audioHeader.getFileSize());
+      audioHeader.setAudioDataLength(audioHeader.getFileSize() - firstOffSet);
+    }
 
     // skip the rest, we don't need it
     bufferedSource.skip(dataSize);
